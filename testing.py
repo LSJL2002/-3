@@ -3,6 +3,15 @@ letter_number = {letters: index for index, letters in enumerate(letters)}
 number_letter = {index:letter for letter, index in letter_number.items()}
 
 
+def get_original_text(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read()
+    return content
+
+def get_shift_amount():
+    return int(input("Shift Amount"))
+
+
 def cipher(text, shift):
     result = []
     for char in text:
