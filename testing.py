@@ -4,7 +4,7 @@ letter_number = {letters: index for index, letters in enumerate(letters)}
 number_letter = {index:letter for letter, index in letter_number.items()}
 
 
-def shift_text(text, shift):
+def cipher(text, shift):
     result = []
     for char in text:
         if char in letter_number:
@@ -18,9 +18,6 @@ def shift_text(text, shift):
             result.append(char)
     return ''.join(result)
 
-text = "I came, I saw, I conquered!"
-shifted = shift_text(text, 20)
-print(shifted)
 
 def remove_nonletters(text):
     return ''.join(char for char in text if char in letter_number)
