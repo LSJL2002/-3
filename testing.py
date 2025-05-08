@@ -18,9 +18,9 @@ def cipher(text, shift):
         if char in letter_number:
             current_index = letter_number[char]
             if char.islower():
-                new_index = (current_index + shift) % 26 + 26
+                new_index = (current_index - shift) % 26 + 26
             else:
-                new_index = (current_index + shift) % 26
+                new_index = (current_index - shift) % 26
             result.append(number_letter[new_index])
         elif char == " ":
             result.append(char)
@@ -35,9 +35,9 @@ def decipher(text, shift):
     for char in text:
         current_index = letter_number[char]
         if char.islower():
-            new_index = (current_index - shift) % 26 + 26
+            new_index = (current_index + shift) % 26 + 26
         else:
-            new_index = (current_index - shift) % 26
+            new_index = (current_index + shift) % 26
         result.append(number_letter[new_index])
 
     return ''.join(result)
