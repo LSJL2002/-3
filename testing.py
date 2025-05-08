@@ -9,7 +9,7 @@ def get_original_text(file_name):
     return content
 
 def get_shift_amount():
-    return int(input("Shift Amount"))
+    return int(input("Shift Amount: "))
 
 
 def cipher(text, shift):
@@ -44,7 +44,7 @@ def decipher(text, shift):
 
 if __name__ == "__main__":
     original_text = "I came, I saw, I conquered!"
-    shift = 20  
+    shift = get_shift_amount()
     letter_only = remove_nonletters(original_text)
     cipher_text = cipher(letter_only, shift)
     print(f"{cipher_text=}")
