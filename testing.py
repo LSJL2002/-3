@@ -22,4 +22,26 @@ text = "I came, I saw, I conquered!"
 shifted = shift_text(text, 20)
 print(shifted)
 
-        
+def remove_nonletters(text):
+    return ''.join(char for char in text if char in letter_number)
+
+def decipher(text, shift):
+    result = []
+    for char in text:
+        current_index = letter_number[char]
+        if char.islower():
+            new_index = (current_index - shift) % 26 + 26
+        else:
+            new_index = (current_index - shift) % 26
+        result.append(number_letter[new_index])
+
+    return ''.join(result)
+
+if __name__ == "__main__":
+    original_text = "I came, I saw, I conquered!"
+    shift = 20  
+    letter_only = remove_nonletters(original_text)
+    cipher_text = cipher(letter_only, shift)
+    print(f"{cipher_text=}")
+    deciphered_text = decipher(cipher_text, shift)
+    print(f"{deciphered_text=}")
