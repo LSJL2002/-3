@@ -1,10 +1,17 @@
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 letter_number = {letters: index for index, letters in enumerate(letters)}
-
 number_letter = {index:letter for letter, index in letter_number.items()}
 
 
-def shift_text(text, shift):
+def get_original_text(file_name):
+    with open(file_name, 'r') as file:
+        content = file.read()
+    return content
+
+def get_shifamount():
+    return int(input("How much should it shift by?"))
+
+def cipher_text(text, shift):
     result = []
     for char in text:
         if char in letter_number:
@@ -18,8 +25,5 @@ def shift_text(text, shift):
             result.append(char)
     return ''.join(result)
 
-text = "I came, I saw, I conquered!"
-shifted = shift_text(text, 20)
-print(shifted)
 
         
