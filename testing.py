@@ -14,7 +14,9 @@ def get_shift_amount():
 
 def cipher(text, shift):
     result = []
-    for char in text:
+    for i,char in enumerate(text):
+        if i%5 == 0 and i != 0: 
+            result.append(" ")
         if char in letter_number:
             current_index = letter_number[char]
             if char.islower():
@@ -22,8 +24,7 @@ def cipher(text, shift):
             else:
                 new_index = (current_index - shift) % 26
             result.append(number_letter[new_index])
-        elif char == " ":
-            result.append(char)
+        
     return ''.join(result)
 
 
@@ -31,6 +32,7 @@ def remove_nonletters(text):
     return ''.join(char for char in text if char in letter_number)
 
 def decipher(text, shift):
+    text = remove_nonletters(text)
     result = []
     for char in text:
         current_index = letter_number[char]
