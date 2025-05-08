@@ -45,7 +45,7 @@ def decipher(text, shift):
     return ''.join(result)
 
 if __name__ == "__main__":
-    original_text = "I came, I saw, I conquered!"
+    original_text = get_original_text("text.txt")
     shift = get_shift_amount()
     letter_only = remove_nonletters(original_text)
     cipher_text = cipher(letter_only, shift)
