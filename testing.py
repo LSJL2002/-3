@@ -1,3 +1,5 @@
+from argparse import ArgumentParser
+
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 letter_number = {letters: index for index, letters in enumerate(letters)}
 number_letter = {index:letter for letter, index in letter_number.items()}
@@ -9,6 +11,11 @@ def get_original_text(file_name):
     return content
 
 def get_shift_amount():
+    parser = ArgumentParser()
+    parser.add_argument("-sh", "--shift", type=int, help="Shift amount for the cipher")
+    args = parser.parse_args()
+    if args.shift:
+        return args.shift
     return int(input("Shift Amount: "))
 
 
